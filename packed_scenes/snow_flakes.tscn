@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://gqkj46vt5moo"]
+
+[ext_resource type="Texture2D" uid="uid://desvfu13ydljy" path="res://sprites/snow_flake.png" id="1_et1xj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_irca5"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -100, 0)
+emission_shape_scale = Vector3(10, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(30, 10, 2.815)
+angle_min = 485.4
+angle_max = 485.4
+velocity_pivot = Vector3(0, 2.555, 0)
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 98, 0)
+
+[node name="snow_flakes" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(353, 360)
+scale = Vector2(3.63029, 3.641)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_irca5")
+texture = ExtResource("1_et1xj")

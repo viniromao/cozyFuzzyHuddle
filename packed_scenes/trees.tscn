@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqbtjcsf8va8"]
+
+[ext_resource type="PackedScene" uid="uid://crb45xjc0jihp" path="res://models/enviroment/trees.glb" id="1_f2qyk"]
+
+[node name="trees" instance=ExtResource("1_f2qyk")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Mesh_Tree_Secamore" parent="." index="1"]
+visible = false

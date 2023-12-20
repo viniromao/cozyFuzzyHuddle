@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c21qfmuakyq0w"]
+
+[ext_resource type="Script" path="res://scripts/creature.gd" id="1_6anmk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao5dv"]
+albedo_color = Color(0, 0.815686, 0.901961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5c3jg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ag710"]
+
+[node name="creature" type="RigidBody3D"]
+script = ExtResource("1_6anmk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ao5dv")
+mesh = SubResource("BoxMesh_5c3jg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ag710")

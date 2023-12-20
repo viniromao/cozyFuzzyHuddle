@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxiq5gi326t1f"]
+
+[ext_resource type="FontFile" uid="uid://bjk4x2yn0al8g" path="res://fonts/kiwi_soda.ttf" id="1_2lq63"]
+[ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_6salk"]
+[ext_resource type="Texture2D" uid="uid://bhqt10j6yo2c5" path="res://sprites/game_over_sprite.png" id="3_tkvqm"]
+[ext_resource type="Script" path="res://scripts/blink.gd" id="4_hroe8"]
+[ext_resource type="AudioStream" uid="uid://bfhh1l6dq6lq" path="res://sfx/predators.ogg" id="5_jbsif"]
+
+[node name="game_over" type="Node2D"]
+script = ExtResource("1_6salk")
+
+[node name="GameOverSprite" type="Sprite2D" parent="."]
+position = Vector2(329.406, 319.406)
+scale = Vector2(0.760559, 0.752747)
+texture = ExtResource("3_tkvqm")
+
+[node name="start" type="Label" parent="."]
+offset_left = 210.0
+offset_top = 633.0
+offset_right = 486.0
+offset_bottom = 764.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2lq63")
+theme_override_font_sizes/font_size = 32
+text = "Press E to
+CONTINUE"
+horizontal_alignment = 1
+script = ExtResource("4_hroe8")
+
+[node name="game_over_theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jbsif")
+autoplay = true
+
+[node name="blink_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="blink_timer" to="start" method="_on_blink_timer_timeout"]

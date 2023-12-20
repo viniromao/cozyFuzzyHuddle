@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk83sgaqkvdoo"]
+
+[ext_resource type="Script" path="res://scripts/pack.gd" id="1_7jwjv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un2mn"]
+albedo_color = Color(0.960784, 0, 0.0235294, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qyawk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmw1n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbsmt"]
+albedo_color = Color(0, 0.482353, 0.537255, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_34g2m"]
+
+[node name="pack" type="Node3D"]
+script = ExtResource("1_7jwjv")
+
+[node name="debug_position" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.223598, 0, 0, 0, 3.48181, 0, 0, 0, 0.211841, 0, 3.51712, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_un2mn")
+mesh = SubResource("CylinderMesh_qyawk")
+
+[node name="pack_awerenes" type="ShapeCast3D" parent="."]
+transform = Transform3D(19.787, 0, 0, 0, 1, 0, 0, 0, 20.9346, 0, 1.60611, 0)
+shape = SubResource("BoxShape3D_xmw1n")
+collision_mask = 8
+debug_shape_custom_color = Color(0.984314, 0.203922, 0, 1)
+
+[node name="pack_awerenes_debug" type="MeshInstance3D" parent="pack_awerenes"]
+visible = false
+material_override = SubResource("StandardMaterial3D_gbsmt")
+mesh = SubResource("BoxMesh_34g2m")

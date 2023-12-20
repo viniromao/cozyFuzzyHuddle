@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://blcquxys1p6va"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_q55hx"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="2_cays5"]
+[ext_resource type="PackedScene" uid="uid://bcl2bdlcq4icu" path="res://packed_scenes/hearth.tscn" id="3_10inp"]
+[ext_resource type="PackedScene" uid="uid://dbaeor8tolyiq" path="res://packed_scenes/player.tscn" id="3_uqvwu"]
+[ext_resource type="AudioStream" uid="uid://dfyti0ti4gqcl" path="res://sfx/theme.mp3" id="4_j30lm"]
+[ext_resource type="Shader" path="res://shaders/pixelate_shader.gdshader" id="6_mnkuy"]
+[ext_resource type="Texture2D" uid="uid://drimk87wl1wdv" path="res://sprites/TanookiBoi.png" id="7_sqhgk"]
+[ext_resource type="PackedScene" uid="uid://gqkj46vt5moo" path="res://packed_scenes/snow_flakes.tscn" id="8_tedeu"]
+[ext_resource type="PackedScene" uid="uid://cctbqli3xf1yl" path="res://models/enviroment/campfire.glb" id="9_egypw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax2wj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ldvoy"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oaoan"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tmxr5"]
+shader = ExtResource("6_mnkuy")
+shader_parameter/pixelate = 512.0
+shader_parameter/color_1 = Vector4(0.09, 0.13, 0.22, 1)
+shader_parameter/color_2 = Vector4(0.15, 0.23, 0.37, 1)
+shader_parameter/color_3 = Vector4(0.24, 0.37, 0.55, 1)
+shader_parameter/color_4 = Vector4(0.31, 0.56, 0.73, 1)
+shader_parameter/color_5 = Vector4(0.45, 0.75, 0.83, 1)
+shader_parameter/color_6 = Vector4(0.1, 0.2, 0.18, 1)
+shader_parameter/color_7 = Vector4(0.15, 0.34, 0.18, 1)
+shader_parameter/color_8 = Vector4(0.27, 0.51, 0.2, 1)
+shader_parameter/color_9 = Vector4(0.46, 0.65, 0.26, 1)
+shader_parameter/color_10 = Vector4(0.66, 0.79, 0.35, 1)
+shader_parameter/color_11 = Vector4(0.82, 0.85, 0.57, 1)
+shader_parameter/color_12 = Vector4(0.3, 0.17, 0.2, 1)
+shader_parameter/color_13 = Vector4(0.48, 0.28, 0.25, 1)
+shader_parameter/color_14 = Vector4(0.68, 0.47, 0.34, 1)
+shader_parameter/color_15 = Vector4(0.75, 0.58, 0.45, 1)
+shader_parameter/color_16 = Vector4(0.84, 0.71, 0.58, 1)
+shader_parameter/color_17 = Vector4(0.91, 0.84, 0.7, 1)
+shader_parameter/color_18 = Vector4(0.2, 0.11, 0.15, 1)
+shader_parameter/color_19 = Vector4(0.38, 0.17, 0.17, 1)
+shader_parameter/color_20 = Vector4(0.53, 0.29, 0.17, 1)
+shader_parameter/color_21 = Vector4(0.75, 0.47, 0.17, 1)
+shader_parameter/color_22 = Vector4(0.87, 0.62, 0.25, 1)
+shader_parameter/color_23 = Vector4(0.91, 0.76, 0.44, 1)
+shader_parameter/color_24 = Vector4(0.14, 0.08, 0.15, 1)
+shader_parameter/color_25 = Vector4(0.25, 0.11, 0.19, 1)
+shader_parameter/color_26 = Vector4(0.46, 0.14, 0.22, 1)
+shader_parameter/color_27 = Vector4(0.65, 0.19, 0.19, 1)
+shader_parameter/color_28 = Vector4(0.81, 0.34, 0.24, 1)
+shader_parameter/color_29 = Vector4(0.85, 0.53, 0.24, 1)
+shader_parameter/color_30 = Vector4(0.12, 0.11, 0.22, 1)
+shader_parameter/color_31 = Vector4(0.25, 0.15, 0.32, 1)
+shader_parameter/color_32 = Vector4(0.48, 0.21, 0.48, 1)
+shader_parameter/color_33 = Vector4(0.64, 0.24, 0.55, 1)
+shader_parameter/color_34 = Vector4(0.78, 0.32, 0.59, 1)
+shader_parameter/color_35 = Vector4(0.87, 0.52, 0.65, 1)
+shader_parameter/color_36 = Vector4(0.04, 0.04, 0.08, 1)
+shader_parameter/color_37 = Vector4(0.06, 0.08, 0.12, 1)
+shader_parameter/color_38 = Vector4(0.08, 0.11, 0.16, 1)
+shader_parameter/color_39 = Vector4(0.13, 0.18, 0.22, 1)
+shader_parameter/color_40 = Vector4(0.22, 0.29, 0.31, 1)
+shader_parameter/color_41 = Vector4(0.34, 0.45, 0.47, 1)
+shader_parameter/color_42 = Vector4(0.51, 0.59, 0.59, 1)
+shader_parameter/color_43 = Vector4(0.66, 0.71, 0.7, 1)
+shader_parameter/color_44 = Vector4(0.78, 0.81, 0.8, 1)
+shader_parameter/color_45 = Vector4(0.92, 0.93, 0.91, 1)
+
+[node name="main_scene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.605946, 2.468, -3.57917)
+script = ExtResource("1_q55hx")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(919.147, 0, 0, 0, 1, 0, 0, 0, 1811.19, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ax2wj")
+mesh = SubResource("PlaneMesh_ldvoy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_oaoan")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 40)
+projection = 1
+size = 40.0
+script = ExtResource("2_cays5")
+
+[node name="hearth" parent="camera" instance=ExtResource("3_10inp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.9303, 9.79665, -22.1035)
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 100, 0)
+shadow_enabled = true
+
+[node name="player" parent="." instance=ExtResource("3_uqvwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0706399, 0, 0.423971)
+
+[node name="predator_spawn_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="theme_song" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_j30lm")
+volume_db = 10.0
+
+[node name="snow_flakes" parent="." instance=ExtResource("8_tedeu")]
+
+[node name="pixelation" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tmxr5")
+position = Vector2(350, 283)
+texture = ExtResource("7_sqhgk")
+
+[node name="campfire" parent="." instance=ExtResource("9_egypw")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.924, 0, 8.485)
+
+[connection signal="timeout" from="predator_spawn_timer" to="." method="_on_predator_spawn_timer_timeout"]

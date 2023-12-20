@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci5yngo10b4ni"]
+
+[ext_resource type="PackedScene" uid="uid://chmdl8wdqabyx" path="res://models/enviroment/logs.glb" id="1_d2qv3"]
+
+[node name="logs" instance=ExtResource("1_d2qv3")]
+
+[node name="Mesh_Log_OneBranch" parent="." index="1"]
+visible = false
+
+[node name="Mesh_Log_TwoBranch" parent="." index="2"]
+visible = false

@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://6khao3fjweii"]
+
+[ext_resource type="Script" path="res://scripts/predator.gd" id="1_tp5qg"]
+[ext_resource type="PackedScene" uid="uid://dn8rvnrb6yevu" path="res://models/wolf.fbx" id="2_eqhgw"]
+[ext_resource type="PackedScene" uid="uid://cnygivthfdvsm" path="res://models/exclamation_mark.glb" id="3_3ni0l"]
+[ext_resource type="PackedScene" uid="uid://c0w85t4874yqd" path="res://animations/wolf_run_anim.fbx" id="4_7vqd0"]
+[ext_resource type="PackedScene" uid="uid://ftg7xc6k8tlj" path="res://animations/wolf_walk_anim.fbx" id="5_r12pn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8rw0"]
+size = Vector3(1, 1, 1.0907)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsabj"]
+
+[node name="predator" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 7
+gravity_scale = 0.0
+script = ExtResource("1_tp5qg")
+
+[node name="rigid_body_collision_detector" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.400668, 0.124607)
+shape = SubResource("BoxShape3D_m8rw0")
+
+[node name="mesh" parent="." instance=ExtResource("2_eqhgw")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.532548, 0)
+visible = false
+
+[node name="creature_collision_detector" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="shape" type="CollisionShape3D" parent="creature_collision_detector"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.40481, 0)
+shape = SubResource("BoxShape3D_hsabj")
+
+[node name="exclamation_mark" parent="." instance=ExtResource("3_3ni0l")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.17688, 0)
+visible = false
+
+[node name="changer_scare_state" type="Timer" parent="."]
+one_shot = true
+
+[node name="scared_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="running" parent="." instance=ExtResource("4_7vqd0")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.5, 0)
+visible = false
+
+[node name="walking" parent="." instance=ExtResource("5_r12pn")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.5, 0)
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="creature_collision_detector" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="changer_scare_state" to="." method="_on_changer_scare_state_timeout"]
+[connection signal="timeout" from="scared_timer" to="." method="_on_scared_timer_timeout"]

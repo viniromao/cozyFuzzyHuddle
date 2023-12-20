@@ -1,0 +1,191 @@
+[gd_scene load_steps=15 format=3 uid="uid://ylvga1jskgnf"]
+
+[ext_resource type="Script" path="res://scenes/tutorial_scene.gd" id="1_3dkps"]
+[ext_resource type="Shader" path="res://shaders/pixelate_shader.gdshader" id="2_6p5e6"]
+[ext_resource type="Script" path="res://animations/animate.gd" id="2_h4jwd"]
+[ext_resource type="Texture2D" uid="uid://b6yj2a46swn8n" path="res://sprites/start_frame.png" id="3_xcqce"]
+[ext_resource type="PackedScene" uid="uid://c3jfapq7kgv0b" path="res://animations/kid_run_anim.fbx" id="4_5ispw"]
+[ext_resource type="FontFile" uid="uid://bjk4x2yn0al8g" path="res://fonts/kiwi_soda.ttf" id="4_jy2ea"]
+[ext_resource type="PackedScene" uid="uid://b1lt0exuvm2a0" path="res://animations/chipmonk_walk_anim.fbx" id="5_1y5lf"]
+[ext_resource type="PackedScene" uid="uid://c0w85t4874yqd" path="res://animations/wolf_run_anim.fbx" id="6_rgkyl"]
+[ext_resource type="PackedScene" uid="uid://cnygivthfdvsm" path="res://models/exclamation_mark.glb" id="7_savln"]
+[ext_resource type="Script" path="res://scripts/blink.gd" id="8_0iadc"]
+[ext_resource type="AudioStream" uid="uid://bfhh1l6dq6lq" path="res://sfx/predators.ogg" id="9_ymg2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3e55"]
+albedo_color = Color(0.313726, 0.270588, 0.164706, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_johed"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_toska"]
+shader = ExtResource("2_6p5e6")
+shader_parameter/pixelate = 512.0
+shader_parameter/color_1 = Vector4(0.09, 0.13, 0.22, 1)
+shader_parameter/color_2 = Vector4(0.15, 0.23, 0.37, 1)
+shader_parameter/color_3 = Vector4(0.24, 0.37, 0.55, 1)
+shader_parameter/color_4 = Vector4(0.31, 0.56, 0.73, 1)
+shader_parameter/color_5 = Vector4(0.45, 0.75, 0.83, 1)
+shader_parameter/color_6 = Vector4(0.1, 0.2, 0.18, 1)
+shader_parameter/color_7 = Vector4(0.15, 0.34, 0.18, 1)
+shader_parameter/color_8 = Vector4(0.27, 0.51, 0.2, 1)
+shader_parameter/color_9 = Vector4(0.46, 0.65, 0.26, 1)
+shader_parameter/color_10 = Vector4(0.66, 0.79, 0.35, 1)
+shader_parameter/color_11 = Vector4(0.82, 0.85, 0.57, 1)
+shader_parameter/color_12 = Vector4(0.3, 0.17, 0.2, 1)
+shader_parameter/color_13 = Vector4(0.48, 0.28, 0.25, 1)
+shader_parameter/color_14 = Vector4(0.68, 0.47, 0.34, 1)
+shader_parameter/color_15 = Vector4(0.75, 0.58, 0.45, 1)
+shader_parameter/color_16 = Vector4(0.84, 0.71, 0.58, 1)
+shader_parameter/color_17 = Vector4(0.91, 0.84, 0.7, 1)
+shader_parameter/color_18 = Vector4(0.2, 0.11, 0.15, 1)
+shader_parameter/color_19 = Vector4(0.38, 0.17, 0.17, 1)
+shader_parameter/color_20 = Vector4(0.53, 0.29, 0.17, 1)
+shader_parameter/color_21 = Vector4(0.75, 0.47, 0.17, 1)
+shader_parameter/color_22 = Vector4(0.87, 0.62, 0.25, 1)
+shader_parameter/color_23 = Vector4(0.91, 0.76, 0.44, 1)
+shader_parameter/color_24 = Vector4(0.14, 0.08, 0.15, 1)
+shader_parameter/color_25 = Vector4(0.25, 0.11, 0.19, 1)
+shader_parameter/color_26 = Vector4(0.46, 0.14, 0.22, 1)
+shader_parameter/color_27 = Vector4(0.65, 0.19, 0.19, 1)
+shader_parameter/color_28 = Vector4(0.81, 0.34, 0.24, 1)
+shader_parameter/color_29 = Vector4(0.85, 0.53, 0.24, 1)
+shader_parameter/color_30 = Vector4(0.12, 0.11, 0.22, 1)
+shader_parameter/color_31 = Vector4(0.25, 0.15, 0.32, 1)
+shader_parameter/color_32 = Vector4(0.48, 0.21, 0.48, 1)
+shader_parameter/color_33 = Vector4(0.64, 0.24, 0.55, 1)
+shader_parameter/color_34 = Vector4(0.78, 0.32, 0.59, 1)
+shader_parameter/color_35 = Vector4(0.87, 0.52, 0.65, 1)
+shader_parameter/color_36 = Vector4(0.04, 0.04, 0.08, 1)
+shader_parameter/color_37 = Vector4(0.06, 0.08, 0.12, 1)
+shader_parameter/color_38 = Vector4(0.08, 0.11, 0.16, 1)
+shader_parameter/color_39 = Vector4(0.13, 0.18, 0.22, 1)
+shader_parameter/color_40 = Vector4(0.22, 0.29, 0.31, 1)
+shader_parameter/color_41 = Vector4(0.34, 0.45, 0.47, 1)
+shader_parameter/color_42 = Vector4(0.51, 0.59, 0.59, 1)
+shader_parameter/color_43 = Vector4(0.66, 0.71, 0.7, 1)
+shader_parameter/color_44 = Vector4(0.78, 0.81, 0.8, 1)
+shader_parameter/color_45 = Vector4(0.92, 0.93, 0.91, 1)
+shader_parameter/color_46 = Vector4(0.831373, 0.756863, 0.592157, 1)
+
+[node name="tutorial_scene" type="Node3D"]
+script = ExtResource("1_3dkps")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00141335, 9.53674e-07, 1.81288)
+projection = 1
+size = 30.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(40.8188, 0, 0, 0, -4.37114e-08, -60.7716, 0, 1, -2.65641e-06, 0, 0, -16.0517)
+material_override = SubResource("StandardMaterial3D_k3e55")
+mesh = SubResource("PlaneMesh_johed")
+
+[node name="Root Scene" parent="." instance=ExtResource("4_5ispw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.39084, 3.58085, -11.1594)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene7" parent="." instance=ExtResource("4_5ispw")]
+transform = Transform3D(1.6403, 0, 1.14429, 0, 2, 0, -1.14429, 0, 1.6403, -5.43517, 2.3947, -11.1451)
+script = ExtResource("2_h4jwd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_toska")
+position = Vector2(325, 316)
+scale = Vector2(-10.5405, 8.77405)
+texture = ExtResource("3_xcqce")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 227.0
+offset_right = 271.0
+offset_bottom = 294.0
+theme_override_colors/font_color = Color(0.831373, 0.756863, 0.592157, 1)
+theme_override_fonts/font = ExtResource("4_jy2ea")
+theme_override_font_sizes/font_size = 32
+text = "Stay warm 
+inside the pack
+with AWSD"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 65.0
+offset_top = 547.0
+offset_right = 389.0
+offset_bottom = 614.0
+theme_override_colors/font_color = Color(0.831373, 0.756863, 0.592157, 1)
+theme_override_fonts/font = ExtResource("4_jy2ea")
+theme_override_font_sizes/font_size = 32
+text = "Avoid letting the wolves 
+catch the wild creatures"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 358.0
+offset_top = 228.0
+offset_right = 640.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.831373, 0.756863, 0.592157, 1)
+theme_override_fonts/font = ExtResource("4_jy2ea")
+theme_override_font_sizes/font_size = 32
+text = "Scare wolves away
+with SPACE
+
+If you scare them 
+long enough, they will
+vanish"
+horizontal_alignment = 1
+
+[node name="Root Scene2" parent="." instance=ExtResource("5_1y5lf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.3441, 2.75624, -10.608)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene3" parent="." instance=ExtResource("5_1y5lf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.05084, 2.75624, -9.71843)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene4" parent="." instance=ExtResource("5_1y5lf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.86618, 2.75624, -10.5113)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene9" parent="." instance=ExtResource("5_1y5lf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.64308, -5.80511, -10.7146)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene5" parent="." instance=ExtResource("5_1y5lf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.55437, 2.75624, -11.3837)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene6" parent="." instance=ExtResource("6_rgkyl")]
+transform = Transform3D(1.45075, 0, 1.37671, 0, 2, 0, -1.37671, 0, 1.45075, -2.25664, 2.39964, -11.5746)
+script = ExtResource("2_h4jwd")
+
+[node name="Root Scene8" parent="." instance=ExtResource("6_rgkyl")]
+transform = Transform3D(1.69794, 0, 1.05688, 0, 2, 0, -1.05688, 0, 1.69794, 1.90877, -5.39177, -14.0039)
+script = ExtResource("2_h4jwd")
+
+[node name="exclamation_mark" parent="." instance=ExtResource("7_savln")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.9186, 5.61004, -11)
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 474.0
+offset_top = 605.0
+offset_right = 676.0
+offset_bottom = 672.0
+theme_override_colors/font_color = Color(0.831373, 0.756863, 0.592157, 1)
+theme_override_fonts/font = ExtResource("4_jy2ea")
+theme_override_font_sizes/font_size = 32
+text = "Press E to
+continue ->"
+horizontal_alignment = 1
+script = ExtResource("8_0iadc")
+
+[node name="blink_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ymg2s")
+autoplay = true
+
+[connection signal="timeout" from="blink_timer" to="Label4" method="_on_blink_timer_timeout"]

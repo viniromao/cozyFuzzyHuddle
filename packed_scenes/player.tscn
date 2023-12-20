@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbaeor8tolyiq"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_4bp7g"]
+[ext_resource type="PackedScene" uid="uid://fso32mdaj6qa" path="res://models/player.fbx" id="1_hxc57"]
+[ext_resource type="PackedScene" uid="uid://bowgbseqiggsb" path="res://animations/kid_walk_anim.fbx" id="3_80bfp"]
+[ext_resource type="PackedScene" uid="uid://d27qgw6oani07" path="res://animations/kid_scare_anim.fbx" id="4_e0sq4"]
+[ext_resource type="PackedScene" uid="uid://c3jfapq7kgv0b" path="res://animations/kid_run_anim.fbx" id="5_34d3p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avxlp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4y7qr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jonkc"]
+
+[node name="player" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_4bp7g")
+
+[node name="mesh" parent="." instance=ExtResource("1_hxc57")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
+
+[node name="rigid_body_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.520702, 0)
+shape = SubResource("BoxShape3D_avxlp")
+
+[node name="warmth_tick" type="Timer" parent="."]
+autostart = true
+
+[node name="collision_area" type="Area3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.515911, 0)
+collision_layer = 4
+collision_mask = 8
+
+[node name="shape" type="CollisionShape3D" parent="collision_area"]
+shape = SubResource("BoxShape3D_4y7qr")
+
+[node name="scaring_predators_area" type="Area3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="shape" type="CollisionShape3D" parent="scaring_predators_area"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.510719, 6.54159)
+shape = SubResource("BoxShape3D_jonkc")
+
+[node name="walking" parent="." instance=ExtResource("3_80bfp")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
+
+[node name="scare" parent="." instance=ExtResource("4_e0sq4")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
+
+[node name="running" parent="." instance=ExtResource("5_34d3p")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[connection signal="timeout" from="warmth_tick" to="." method="_on_warmth_tick_timeout"]
+[connection signal="body_entered" from="collision_area" to="." method="_on_collision_area_body_entered"]
+[connection signal="body_entered" from="scaring_predators_area" to="." method="_on_scaring_predators_area_body_entered"]
+[connection signal="body_exited" from="scaring_predators_area" to="." method="_on_scaring_predators_area_body_exited"]

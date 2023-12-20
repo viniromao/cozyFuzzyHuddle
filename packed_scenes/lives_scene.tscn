@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b720qxnbcyhsc"]
+
+[ext_resource type="PackedScene" uid="uid://8tohlnxwry0w" path="res://models/hearth.glb" id="1_l7134"]
+
+[node name="lives_scene" type="SubViewport"]
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.234145, 4.26719)
+
+[node name="hearth" parent="." instance=ExtResource("1_l7134")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://iesmanw7o0wc"]
+
+[ext_resource type="PackedScene" uid="uid://d3lfcpsqn6pao" path="res://models/enviroment/snowmans.glb" id="1_uly0g"]
+
+[node name="snowmans" instance=ExtResource("1_uly0g")]
+
+[node name="Mesh_Snowman_ConeHat" parent="." index="1"]
+visible = false
+
+[node name="Mesh_Snowman_Punk" parent="." index="2"]
+visible = false

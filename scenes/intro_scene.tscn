@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dikb88ob8h0lb"]
+
+[ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_k2bet"]
+[ext_resource type="Texture2D" uid="uid://cct1ut1q4p4tb" path="res://sprites/title.png" id="2_w8hq5"]
+[ext_resource type="FontFile" uid="uid://bjk4x2yn0al8g" path="res://fonts/kiwi_soda.ttf" id="2_wfty3"]
+[ext_resource type="Script" path="res://scripts/blink.gd" id="4_ootpf"]
+[ext_resource type="Texture2D" uid="uid://b6yj2a46swn8n" path="res://sprites/start_frame.png" id="5_i44xm"]
+[ext_resource type="PackedScene" uid="uid://gqkj46vt5moo" path="res://packed_scenes/snow_flakes.tscn" id="5_mewtx"]
+[ext_resource type="AudioStream" uid="uid://yxagtmuapwuu" path="res://sfx/prey.ogg" id="5_vnm7c"]
+
+[node name="intro_scene" type="Node2D"]
+script = ExtResource("1_k2bet")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(354.316, 352.75)
+scale = Vector2(1.37719, 1.37719)
+texture = ExtResource("2_w8hq5")
+
+[node name="main_title" type="Label" parent="."]
+offset_left = -1324.0
+offset_top = 94.0
+offset_right = -619.0
+offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("2_wfty3")
+theme_override_font_sizes/font_size = 128
+text = "Cozy Fuzzy 
+Huddle"
+horizontal_alignment = 1
+
+[node name="blink_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vnm7c")
+autoplay = true
+
+[node name="snow_flakes" parent="." instance=ExtResource("5_mewtx")]
+
+[node name="start" type="Label" parent="."]
+offset_left = 222.0
+offset_top = 243.0
+offset_right = 498.0
+offset_bottom = 374.0
+theme_override_colors/font_color = Color(0.196078, 0.0941176, 0.00392157, 1)
+theme_override_colors/font_shadow_color = Color(0.933333, 0.921569, 0.815686, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_wfty3")
+theme_override_font_sizes/font_size = 64
+text = "Press E to
+START"
+horizontal_alignment = 1
+script = ExtResource("4_ootpf")
+
+[node name="StartFrame" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(342.5, 566.5)
+scale = Vector2(2.39844, 2.39844)
+texture = ExtResource("5_i44xm")
+
+[connection signal="timeout" from="blink_timer" to="start" method="_on_blink_timer_timeout"]

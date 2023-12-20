@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://df04olu731y5t"
+path.s3tc="res://.godot/imported/kid_run_anim-a00d25bb493567a0542c2183627767b1_Cozy_Texture.png-a018e4e19591364ec7aee9c656d28e34.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://animations/kid_run_anim-a00d25bb493567a0542c2183627767b1_Cozy_Texture.png"
+dest_files=["res://.godot/imported/kid_run_anim-a00d25bb493567a0542c2183627767b1_Cozy_Texture.png-a018e4e19591364ec7aee9c656d28e34.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

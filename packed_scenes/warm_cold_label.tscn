@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cba4nrp2d72lr"]
+
+[ext_resource type="FontFile" uid="uid://bjk4x2yn0al8g" path="res://fonts/kiwi_soda.ttf" id="1_2qsmu"]
+[ext_resource type="Script" path="res://scripts/warm_cold_label.gd" id="1_myr4v"]
+
+[node name="warm_cold_label" type="Node2D"]
+script = ExtResource("1_myr4v")
+
+[node name="label" type="Label" parent="."]
+offset_left = 535.0
+offset_top = 603.0
+offset_right = 647.0
+offset_bottom = 667.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2qsmu")
+theme_override_font_sizes/font_size = 64
+text = "Cold"
+
+[node name="queue_free_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="queue_free_timer" to="." method="_on_queue_free_timer_timeout"]

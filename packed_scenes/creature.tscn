@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c21qfmuakyq0w"]
+
+[ext_resource type="Script" path="res://scripts/creature.gd" id="1_6anmk"]
+[ext_resource type="PackedScene" uid="uid://cf66r6or17hpm" path="res://models/chipmonk_blockout01.fbx" id="2_0tu4q"]
+[ext_resource type="PackedScene" uid="uid://qxraw0yad2gg" path="res://animations/chipmonk_run_anim.fbx" id="3_x473t"]
+[ext_resource type="PackedScene" uid="uid://b1lt0exuvm2a0" path="res://animations/chipmonk_walk_anim.fbx" id="4_p1ndc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ag710"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1stl6"]
+
+[node name="creature" type="RigidBody3D"]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 13
+gravity_scale = 0.0
+script = ExtResource("1_6anmk")
+
+[node name="rigidbody_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.211493, 0)
+shape = SubResource("BoxShape3D_ag710")
+
+[node name="fov" type="ShapeCast3D" parent="."]
+transform = Transform3D(32.8309, 0, 0, 0, 0.606736, 0, 0, 0, 36.3209, 0, 0.589941, 0)
+shape = SubResource("BoxShape3D_1stl6")
+collision_mask = 2
+
+[node name="Root Scene" parent="." instance=ExtResource("2_0tu4q")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.408266, 0)
+visible = false
+
+[node name="running" parent="." instance=ExtResource("3_x473t")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+visible = false
+
+[node name="walking" parent="." instance=ExtResource("4_p1ndc")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.5, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
